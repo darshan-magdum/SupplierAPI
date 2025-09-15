@@ -84,6 +84,44 @@ app.get("/api/newgetData", (req, res) => {
 });
 
 
+const thridapi ={
+    "success": true,
+    "data": {
+        "intents": [
+            {
+                "vendor_name": "vendor_lookup",
+                "country": "India",
+                "Source_System": "SAP-MDGBP",
+                "confidence": 0.81
+            },
+            {
+                "vendor_name": "create_vendor_request",
+                "country": "India",
+                "Source_System": "SAP-MDGBP",
+                "confidence": 0.90
+            }
+        ],
+        "entities": [
+            {
+                "type": "vendor_name",
+                "value": "Nihi Ltd"
+            },
+            {
+                "type": "country",
+                "value": "India"
+            }
+        ]
+    }
+}
+
+
+app.get("/api/new2getData", (req, res) => {
+  res.json({
+    success: true,
+    data: thridapi
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Mock API running at http://localhost:${PORT}`);
 });
