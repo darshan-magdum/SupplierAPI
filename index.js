@@ -17,10 +17,30 @@ const suppliers = [
 ];
 
 
+
+
 app.get('/suppliers', (req, res) => {
   res.json({ suppliers });
 });
 
+
+const inputData = {
+  "intents": [
+    { "name": "vendor_lookup", "Source_System": "SAP-MDGBP", "confidence": 0.94 },
+    { "name": "create_vendor_request", "Source_System": "ARIBA", "confidence": 0.88 }
+  ],
+  "entities": [
+    { "type": "vendor_name", "value": "Nihi Ltd" },
+    { "type": "country", "value": "India" }
+  ]
+};
+
+app.get("/api/getData", (req, res) => {
+  res.json({
+    success: true,
+    data: inputData
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Mock API running at http://localhost:${PORT}`);
