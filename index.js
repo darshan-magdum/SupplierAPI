@@ -35,12 +35,54 @@ const inputData = {
   ]
 };
 
+
+
+
+
+const NewinputData = {
+    "success": true,
+    "data": {
+        "intents": [
+            {
+                "vendor_name": "vendor_lookup",
+                "country": "India",
+                "Source_System": "ARIBA",
+                "confidence": 0.94
+            },
+            {
+                "vendor_name": "create_vendor_request",
+                "country": "India",
+                "Source_System": "ARIBA",
+                "confidence": 0.88
+            }
+        ],
+        "entities": [
+            {
+                "type": "vendor_name",
+                "value": "Nihi Ltd"
+            },
+            {
+                "type": "country",
+                "value": "India"
+            }
+        ]
+    }
+}
+
 app.get("/api/getData", (req, res) => {
   res.json({
     success: true,
     data: inputData
   });
 });
+
+app.get("/api/newgetData", (req, res) => {
+  res.json({
+    success: true,
+    data: NewinputData
+  });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Mock API running at http://localhost:${PORT}`);
